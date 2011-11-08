@@ -34,18 +34,18 @@ public class Controller implements Initializable {
             return thread;
         }
     });
-    
+
     @FXML
     private TextField tag;
 
     @FXML
     private Label status;
-    
+
     @FXML
     private Button button;
 
     @FXML
-    public void search(ActionEvent event) {
+    public void searchKuler(ActionEvent event) {
         tag.setDisable(true);
         button.setDisable(true);
         status.setText("Searching...");
@@ -75,13 +75,14 @@ public class Controller implements Initializable {
                 return null;
             }
         };
-        // when we are done, change the current screen to a blank canvas on which we will
+        // when we are done, change the current screen to a blank canvas on
+        // which we will
         // generate the art
         task.stateProperty().addListener(new ChangeListener<Object>() {
-            @Override public void changed(ObservableValue<?> ov, Object old, Object noo) {
+            @Override
+            public void changed(ObservableValue<?> ov, Object old, Object noo) {
                 if (noo == Task.State.SUCCEEDED) {
                     status.setText("");
-                    CoolerKreations.APP.getStage().setScene(Screens.ART.scene);
                     Screens.ART.switchTo();
                 }
                 if (noo == Task.State.SUCCEEDED || noo == Task.State.CANCELLED || noo == Task.State.FAILED) {
@@ -91,6 +92,18 @@ public class Controller implements Initializable {
             }
         });
         THREADPOOL.execute(task);
+    }
+
+    @FXML
+    public void searchRandomColors(ActionEvent event) {
+        UserSelections options = CoolerKreations.APP.options;
+        int randomColors = MathUtil.randomInt(3, 6);
+        options.colors = new Color[randomColors];
+        options.theme = "Random";
+        for (int i = 0; i < randomColors; i++) {
+            options.colors[i] = Color.rgb(MathUtil.randomInt(0,255), MathUtil.randomInt(0,255), MathUtil.randomInt(0,255));
+        }
+        Screens.ART.switchTo();
     }
 
     @Override

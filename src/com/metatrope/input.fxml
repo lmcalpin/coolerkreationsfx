@@ -17,9 +17,11 @@
         <HBox alignment="center" style="-fx-spacing: 15;">
             <children>
                 <TextField id="tag" GridPane.columnIndex="0" GridPane.rowIndex="1" text="" fx:id="tag" />
-                <Button id="button" GridPane.columnIndex="1" GridPane.rowIndex="1" text="Search" onAction="#search" fx:id="button" />
+                <Button id="button" GridPane.columnIndex="1" GridPane.rowIndex="1" text="Search" onAction="#searchKuler" fx:id="button" />
             </children>
         </HBox>
         <Label text="" textFill="RED" style="-fx-font: 14 Tahoma;" fx:id="status" />
+        <Label text="If Kuler search isn't working, you can also just use random colors. It won't be pretty." style="-fx-font: NORMAL 14 Tahoma;" textFill="white" />
+        <Button id="button" text="Use random colors" onAction="#searchRandomColors" fx:id="button" />
    </children>
 </VBox>
