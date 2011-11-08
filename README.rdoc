@@ -1,0 +1,5 @@
+= Cooler Kreations
+
+Inspired by @visualrinse's Cooler Kreator (http://visualrinse.com/coolerkreator/).  This is not intended to be an accurate port.
+It is simply a sample JavaFX application that draws silly little circles and demonstrates FXML, binding to a controller,
+using the Timeline for animation, and other simply JavaFX features. 

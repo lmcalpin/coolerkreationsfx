@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:controller="com.metatrope.controller.Controller" alignment="center" xmlns:fx="http://javafx.com/fxml" style="-fx-spacing: 5;">
+   <children>
+        <HBox alignment="center">
+           <children>
+                <Label text="Cooler Kreations" style="-fx-font: 42 Tahoma;" textFill="white" fx:id="title"/>
+                <Label text="FX" style="-fx-font-weight: bold; -fx-font-size: 42; -fx-font-style: italic;" textFill="white" fx:id="titlefx"/>
+           </children>
+        </HBox>
+        <Label text="What are you in the mood for? Type a tag, hit search, and we'll make some art!" style="-fx-font: NORMAL 14 Tahoma;" textFill="white" />
+        <HBox alignment="center" style="-fx-spacing: 15;">
+            <children>
+                <TextField id="tag" GridPane.columnIndex="0" GridPane.rowIndex="1" text="" fx:id="tag" />
+                <Button id="button" GridPane.columnIndex="1" GridPane.rowIndex="1" text="Search" onAction="#search" fx:id="button" />
+            </children>
+        </HBox>
+        <Label text="" textFill="RED" style="-fx-font: 14 Tahoma;" fx:id="status" />
+   </children>
+</VBox>

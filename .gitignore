@@ -1,0 +1,6 @@
+*.bat
+build.xml
+nbproject
+dist
+etc/*.properties
+build

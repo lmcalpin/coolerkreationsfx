@@ -1,0 +1,2 @@
+# rename as coolerkreator.properties
+apikey=???
