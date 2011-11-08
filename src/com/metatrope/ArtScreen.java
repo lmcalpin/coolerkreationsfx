@@ -14,8 +14,8 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.effect.BlendMode;
-import javafx.scene.effect.Bloom;
 import javafx.scene.effect.BoxBlur;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Effect;
 import javafx.scene.effect.Light.Distant;
 import javafx.scene.effect.Lighting;
@@ -24,6 +24,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.StrokeType;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 /**
@@ -82,6 +84,24 @@ public class ArtScreen implements Screen {
         circles.setBlendMode(BlendMode.ADD);
         root.getChildren().add(circles);
 
+        // identify the theme
+        Text theme = new Text();
+        theme.setX(25.0);
+        theme.setY(25.0);
+        theme.setFont(Font.font("Verdana", 24.0));
+        theme.setFill(Color.WHITE);
+        theme.setText(CoolerKreations.APP.options.theme);
+        
+        DropShadow ds = new DropShadow();
+        ds.setOffsetY(4.0f);
+        ds.setOffsetX(4.0f);
+        ds.setColor(Color.CORAL);
+        
+        theme.setEffect(ds);
+        
+        root.getChildren().add(theme);
+        root.setBlendMode(BlendMode.ADD);
+        
         // animation
         Timeline timeline = new Timeline();
         for (Node circle : circles.getChildren()) {
@@ -94,9 +114,6 @@ public class ArtScreen implements Screen {
                             new KeyValue(circle.translateYProperty(), randomInt(0, 600), Interpolator.EASE_OUT)));
         }
         timeline.play();
-        
-        // identify the theme
-        Label theme = new Label(CoolerKreator.APP.options.theme);
     }
 
     private Effect createEffect() {

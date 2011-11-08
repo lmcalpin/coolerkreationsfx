@@ -61,6 +61,7 @@ public class Controller implements Initializable {
                     UserSelections options = CoolerKreations.APP.options;
                     ThemeItem theme = themes.get(MathUtil.randomInt(0, themes.size() - 1));
                     options.colors = new Color[theme.getThemeSwatches().getSwatches().size()];
+                    options.theme = theme.getThemeTitle();
                     int i = 0;
                     for (Swatch swatch : theme.getThemeSwatches().getSwatches()) {
                         options.colors[i++] = Color.web(swatch.getSwatchHexColor());

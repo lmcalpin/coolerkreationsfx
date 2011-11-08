@@ -25,7 +25,7 @@ public class MathUtilTest {
         int range = higherLimit - lowerLimit + 1;
         int numberOfTests = range * 1000; // totally unscientific
         boolean[] found = new boolean[range];
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < numberOfTests; i++) {
             int returned = MathUtil.randomInt(lowerLimit, higherLimit);
             found[returned - lowerLimit] = true;
         }

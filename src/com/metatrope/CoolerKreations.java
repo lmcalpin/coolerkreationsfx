@@ -39,7 +39,7 @@ public class CoolerKreations extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         APP = this;
         this.stage = stage;
         
